@@ -6,9 +6,11 @@ from fastapi import FastAPI
 from dotenv import load_dotenv
 
 from app.database import init_db, close_db
+from app.utils.logger import Logger
 
 load_dotenv()
 
+logger = Logger.get_logger()
 
 app = FastAPI()
 
