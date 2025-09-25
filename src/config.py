@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
 
-
+    #TODO: use Depend instead methods
     def get_db_name(self):
         if self.ENV == "test":
             return self.DB_NAME + "_test"
