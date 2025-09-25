@@ -1,9 +1,10 @@
-import os
 import sys
 from typing import Optional
 
 from loguru import logger
 from dotenv import load_dotenv
+
+from src.config import settings
 
 load_dotenv()
 
@@ -19,7 +20,7 @@ class Logger:
                 sys.stderr,
                 format="{level} | {time:YYYY-MM-DD HH:mm:ss} | {message} | context={extra[context]}",
                 colorize=True,
-                level=os.getenv("LOG_LEVEL"),
+                level=settings.LOG_LEVEL,
                 enqueue=True
             )
 
