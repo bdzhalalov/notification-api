@@ -17,7 +17,7 @@ services:
     command: /bin/sh -c "uv run uvicorn src.main:app --host=0.0.0.0 --port=8000 --reload"
 
   db:
-    image: mongo:6
+    image: mongo:8
     container_name: notification-db
     volumes:
       - ./docker/mongodb/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
