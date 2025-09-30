@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Literal, Annotated
+from typing import Literal, Annotated, Optional
 from datetime import datetime
 
 from src.utils.helpers import get_now
@@ -25,5 +25,6 @@ class Notification(BaseModel):
     type: Literal["push", "sms"]
     status: Literal["created", "sent", "delivered", "canceled"] = "created"
     created_at: Annotated[datetime, Field(default_factory=get_now, description="Date created")]
+    updated_at: Optional[datetime] = None
 
     model_config = config
